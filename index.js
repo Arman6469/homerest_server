@@ -24,6 +24,9 @@ mongoose.connect(
 mongoose.set("useFindAndModify", false);
 
 const app = express();
+
+app.use("/admin", adminRoute);
+
 app.use(cors());
 app.use(morgan("dev"))
 app.use(helmet());
@@ -31,7 +34,6 @@ app.use(bodyParser.json({ type: "application/*+json" }));
 app.use(formidableMiddleware());
 
 app.use("/products", productRoutes);
-app.use("/admin", adminRoute);
 app.use("/email", emailRoute);
 app.use("/shopitems", shopItemRoutes);
 app.listen(port, () => console.log(`Server is running on port ${port}`));
