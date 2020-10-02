@@ -27,6 +27,7 @@ const app = express();
 
 app.use("/admin", adminRoute);
 
+
 app.use(cors());
 app.use(morgan("dev"))
 app.use(helmet());
