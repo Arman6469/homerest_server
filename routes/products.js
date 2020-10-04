@@ -35,7 +35,7 @@ router.post("/product/add", async (req, res) => {
     title: req.body.title,
     type: req.body.type,
     description: req.body.description,
-    sale: 14,
+    sale: req.body.sale,
     images: req.body.images,
     category: req.body.category,
     price: req.body.price,
@@ -43,7 +43,6 @@ router.post("/product/add", async (req, res) => {
   try {
     await product.save();
     res.send({ message: "Product has succesfuly added" });
-    console.log(product);
   } catch (error) {
     res.send(error);
   }

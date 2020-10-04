@@ -3,6 +3,7 @@ const AdminBroExpress = require("admin-bro-expressjs");
 const AdminBroMongoose = require("admin-bro-mongoose");
 const Product = require('../models/product_model');
 const ShopItem = require('../models/shop_item_model')
+const Video = require('../models/video_model')
 
 const mongoose = require("mongoose");
 
@@ -10,7 +11,7 @@ AdminBro.registerAdapter(AdminBroMongoose);
 
 const adminBro = new AdminBro({
   databases: [mongoose],
-  resources: [Product, ShopItem],
+  resources: [Product, ShopItem,Video],
   rootPath: "/admin",
 });
 

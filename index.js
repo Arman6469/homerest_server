@@ -2,12 +2,13 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const productRoutes = require("./routes/products");
+const videoRoutes = require("./routes/video")
 const adminRoute = require("./routes/admin.router");
 const emailRoute = require("./routes/email");
 const shopItemRoutes = require("./routes/shopitems");
 const mongoose = require("mongoose");
 const helmet = require("helmet");
-const morgan = require("morgan")
+
 
 
 const formidableMiddleware = require("express-formidable");
@@ -29,7 +30,6 @@ app.use("/admin", adminRoute);
 
 
 app.use(cors());
-app.use(morgan("dev"))
 app.use(helmet());
 app.use(bodyParser.json({ type: "application/*+json" }));
 app.use(formidableMiddleware());
@@ -37,4 +37,5 @@ app.use(formidableMiddleware());
 app.use("/products", productRoutes);
 app.use("/email", emailRoute);
 app.use("/shopitems", shopItemRoutes);
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+app.use("/video", videoRoutes)
+app.listen(port);
