@@ -38,6 +38,7 @@ router.post("/sendmail", async (req, res) => {
       : null;
   let transporter = nodemailer.createTransport({
     service: "gmail",
+    port: 587,
     auth: {
       user: "arman.1995.umroyan1@gmail.com",
       pass: "08a358b537",
@@ -92,16 +93,17 @@ router.post("/contactmail", async (req, res) => {
 
   let transporter = nodemailer.createTransport({
     service: "gmail",
+    port: 587,
     auth: {
-      user: "arman.1995.umroyan1@gmail.com",
-      pass: "08a358b537",
+      user: "homerest.furniture@gmail.com",
+      pass: process.env.G_PASS,
     },
   });
 
   let mailOptions = {
     service: "gmail",
-    from: "arman.1995.umroyan1@gmail.com",
-    to: ["arman.1995.umroyan1@gmail.com", "artakkarapetyan928@gmail.com"],
+    from: "homerest@homerest.am",
+    to: ["homerest.furniture@gmail.com"],
     subject: "Հաճախորդի հարց",
     html: `<div style="display: flex"><p>Հաճախորդի անունը ։ </p><p> ${req.fields.firstname}</p></div>
       <div style="display: flex"><p>Ազգանունը ։ </p><p> ${req.fields.lastname}</p></div>
