@@ -103,7 +103,7 @@ router.post("/contactmail", async (req, res) => {
   let mailOptions = {
     service: "gmail",
     from: "homerest@homerest.am",
-    to: ["homerest.furniture@gmail.com"],
+    to: ["arman.1995.umroyan1@gmail.com"],
     subject: "Հաճախորդի հարց",
     html: `<div style="display: flex"><p>Հաճախորդի անունը ։ </p><p> ${req.fields.firstname}</p></div>
       <div style="display: flex"><p>Ազգանունը ։ </p><p> ${req.fields.lastname}</p></div>
