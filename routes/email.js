@@ -76,7 +76,7 @@ router.post("/sendmail", async (req, res) => {
       console.log("Email sent: " + info.response);
     }
   });
-  
+
   res.send({
     message:
       "Ձեր գնումները հաջողությամբ կատարվել են🤩, մենք կկապնվենք Ձեզ հետ ապրանքի առաքման օրը պայմանավորվելու համար😊",
@@ -93,7 +93,7 @@ router.post("/contactmail", async (req, res) => {
 
   let transporter = nodemailer.createTransport({
     service: "gmail",
-    // port: 587,
+    port: 587,
     auth: {
       user: "homerest.furniture@gmail.com",
       pass: process.env.G_PASS,
