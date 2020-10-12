@@ -93,7 +93,7 @@ router.post("/contactmail", async (req, res) => {
 
   let transporter = nodemailer.createTransport({
     service: "gmail",
-    port: 587,
+    // port: 587,
     auth: {
       user: "homerest.furniture@gmail.com",
       pass: process.env.G_PASS,
