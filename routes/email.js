@@ -96,7 +96,7 @@ router.post("/contactmail", async (req, res) => {
     port: 587,
     auth: {
       user: "homerest.furniture@gmail.com",
-      pass: process.env.G_PASS,
+      pass: "arm_art_033",
     },
   });
 
