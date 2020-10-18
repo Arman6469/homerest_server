@@ -40,15 +40,15 @@ router.post("/sendmail", async (req, res) => {
     service: "gmail",
     port: 587,
     auth: {
-      user: "arman.1995.umroyan1@gmail.com",
-      pass: "08a358b537",
+      user: "homerest.furniture@gmail.com",
+      pass: "arm_art_033",
     },
   });
 
   let mailOptions = {
     service: "gmail",
-    from: "arman.1995.umroyan1@gmail.com",
-    to: ["arman.1995.umroyan1@gmail.com", req.fields.email],
+    from: "homerest@homerest.am",
+    to: ["homerest.furniture@gmail.com", req.fields.email],
     subject: "Շնորհակալություն գնումների համար, սիրով HomeRest",
     html: `<div style="display: flex"><p>Պատվիրատուի անունը ։ </p><p> ${
       req.fields.firstname
@@ -84,12 +84,12 @@ router.post("/sendmail", async (req, res) => {
 });
 
 router.post("/contactmail", async (req, res) => {
-  // let human = await validateHuman(req.fields.token);
+  let human = await validateHuman(req.fields.token);
 
-  // if (!human) {
-  //   res.send({ error: "Աչքիս դուք ռոբոտ եք🤨🤖" });
-  //   return;
-  // }
+  if (!human) {
+    res.send({ error: "Աչքիս դուք ռոբոտ եք🤨🤖" });
+    return;
+  }
 
   let transporter = nodemailer.createTransport({
     service: "gmail",
@@ -103,7 +103,7 @@ router.post("/contactmail", async (req, res) => {
   let mailOptions = {
     service: "gmail",
     from: "homerest@homerest.am",
-    to: ["arman.1995.umroyan1@gmail.com"],
+    to: [req.fields.email],
     subject: "Հաճախորդի հարց",
     html: `<div style="display: flex"><p>Հաճախորդի անունը ։ </p><p> ${req.fields.firstname}</p></div>
       <div style="display: flex"><p>Ազգանունը ։ </p><p> ${req.fields.lastname}</p></div>
