@@ -6,7 +6,7 @@ const fetch = require("node-fetch");
 const myEnv = dotenv.config().parsed;
 
 const validateHuman = async (token) => {
-  const secret = myEnv.SECRET_RECAPTCHA_KEY;
+  const secret = "6LdVtNQZAAAAAKwPi-M_4p1Epd0B8KbUGYeTPVJx";
   try {
     const response = await fetch(
       `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`,
@@ -84,12 +84,12 @@ router.post("/sendmail", async (req, res) => {
 });
 
 router.post("/contactmail", async (req, res) => {
-  let human = await validateHuman(req.fields.token);
+  // let human = await validateHuman(req.fields.token);
 
-  if (!human) {
-    res.send({ error: "Աչքիս դուք ռոբոտ եք🤨🤖" });
-    return;
-  }
+  // if (!human) {
+  //   res.send({ error: "Աչքիս դուք ռոբոտ եք🤨🤖" });
+  //   return;
+  // }
 
   let transporter = nodemailer.createTransport({
     service: "gmail",
